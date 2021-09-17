@@ -19,10 +19,10 @@ $imgHeight		= 80;
 $imgWidth		= 250;
 $randTotal		= 7;
 $randomDots		= 50;
-$randomLines	= 25;
+$randomLines		= 25;
 $font			= realpath('./fonts/monofont.ttf');
 $random			= '';
-$captTextColor	= "0x142864";
+$captTextColor		= "0x142864";
 $noiseColor		= "0x142864";
 $fontSize		= $imgHeight * 0.65;
 $random			= substr(str_shuffle('abcdefghijklmnopqrstuvwxyz0123456789'), 0 , $randTotal);
@@ -32,7 +32,7 @@ $image			= @imagecreate($imgWidth, $imgHeight);
 // Atur latar belakang, teks, dan warna noise
 $arrTextColor	= hexToRGB($captTextColor);
 $arrNoiseColor	= hexToRGB($noiseColor);
-$bgColor		= imagecolorallocate($image, 255, 255, 255);
+$bgColor	= imagecolorallocate($image, 255, 255, 255);
 $captTextColor 	= imagecolorallocate($image, $arrTextColor['red'], $arrTextColor['green'], $arrTextColor['blue']);
 $imgNoiseColor	= imagecolorallocate($image, $arrNoiseColor['red'], $arrNoiseColor['green'], $arrNoiseColor['blue']);
 
@@ -59,9 +59,9 @@ for ($i = 0; $i < $randomLines; $i++)
 
 
 // Cetak kotak teks dan tambahkan 6 kode huruf captcha
-$textBox				= imagettfbbox($fontSize, 0, $font, $random); 
-$x						= ($imgWidth - $textBox[4]) / 2;
-$y						= ($imgHeight - $textBox[5]) / 2;
+$textBox		= imagettfbbox($fontSize, 0, $font, $random); 
+$x			= ($imgWidth - $textBox[4]) / 2;
+$y			= ($imgHeight - $textBox[5]) / 2;
 $_SESSION['captcha'] 	= $random;
 
 
